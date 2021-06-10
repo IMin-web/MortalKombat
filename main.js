@@ -9,9 +9,9 @@ const player1 = {
     attack : function attack() {
         console.log(this.name + 'Fight...')
     },
-    changeHP: changeHP,
-    elHP: elHP,
-    renderHP: renderHP,
+    changeHP,
+    elHP,
+    renderHP,
 };
 
 const player2 = {
@@ -23,9 +23,9 @@ const player2 = {
     attack : function attack() {
         console.log(this.name + 'Fight...')
     },
-    changeHP: changeHP,
-    elHP: elHP,
-    renderHP: renderHP,
+    changeHP,
+    elHP,
+    renderHP    ,
 };
 
 const HIT = {
@@ -33,6 +33,7 @@ const HIT = {
     body: 25,
     foot: 20,
 }
+
 const ATTACK = ['head', 'body', 'foot'];
 
 function removeArena(tag){
@@ -66,14 +67,12 @@ function createPlayer(playerObj) {
  }
 
  function getRandom(num) {
-     return Math.random() * num;
+     return Math.ceil(Math.random() * num);
  }
 
 function changeHP(num){
     this.hp -= num;
-    if (this.hp <= 0) {
-        this.hp = 0;
-    }
+    this.renderHP();
 }
 
 function elHP() {
@@ -81,6 +80,9 @@ function elHP() {
 }
 
 function renderHP() {
+    if (this.hp <= 0) {
+        this.hp = 0;
+    }
     this.elHP().style.width = this.hp + '%';
 }
 
@@ -94,7 +96,6 @@ function playerWin(name) {
     return $WinTitle;
 }
 
-
  function createReloadButton() {
      removeArena('.control');
      const $reloadWrap = createElement('div', 'reloadWrap');
@@ -106,9 +107,6 @@ function playerWin(name) {
         window.location.reload();
     })
  }
-
- $arena.appendChild(createPlayer(player1));
- $arena.appendChild(createPlayer(player2));
 
 function enemyAttack() {
     const hit = ATTACK[getRandom(3) - 1];
@@ -137,13 +135,15 @@ function enemyAttack() {
          item.checked = false;
      }
 
-     player1.changeHP(getRandom(20));
-     player1.renderHP();
-     player2.changeHP(getRandom(20));
-     player2.renderHP();
+    if (attack.hit !== enemy.defence){
+        player2.changeHP(attack.value)
+    }
+    if (enemy.hit !== attack.defence) {
+        player1.changeHP(enemy.value)
+    }
+
      if (player1.hp === 0 || player2.hp === 0){
         createReloadButton();
-
      }
 
      if (player1.hp === 0  && player1.hp < player2.hp){
@@ -156,3 +156,5 @@ function enemyAttack() {
  })
 
 
+ $arena.appendChild(createPlayer(player1));
+ $arena.appendChild(createPlayer(player2));
