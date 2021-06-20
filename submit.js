@@ -1,16 +1,17 @@
 import { playerWin } from "./winning.js";
 import { HIT } from "./fight.js";
 import { getRandom } from "./random.js";
-import { $arena, $formFight } from "./arena.js";
+import { $arena } from "./arena.js";
+import { $formFight } from "./arena.js"
 import { createReloadButton } from "./winning.js";
 import { enemyAttack } from "./fight.js";
-import { player1, player2 } from "./player.js";
 import { generateLogs } from "./generateLog.js";
 
-const enemy = enemyAttack();
-const attack = {};
 
-export const onSubmit = () => {
+
+export const onSubmit = (player1, player2) => {
+    const enemy = enemyAttack();
+    const attack = {};
     for (let item of $formFight) {
         if (item.checked && item.name === 'hit') {
             attack.value = getRandom(HIT[item.value]);

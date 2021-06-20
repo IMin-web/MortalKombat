@@ -1,3 +1,4 @@
+import { createElement } from "../create.js";
 export class Player {
     constructor(props) {
         this.player = props.player;
@@ -5,7 +6,7 @@ export class Player {
         this.hp = props.hp;
         this.img = props.img;
         this.weapon = props.weapon;
-        console.log(this);
+
     };
     lastHp = () => {
         return 100 - this.hp;
@@ -15,15 +16,33 @@ export class Player {
     };
     changeHP = (num) => {
         this.hp -= num;
+        if (this.hp <= 0) {
+            this.hp = 0;
+        };
         this.renderHP();
     };
     elHP = () => {
         return document.querySelector('.player' + this.player + ' .life');
     };
     renderHP = () => {
-        if (this.hp <= 0) {
-            this.hp = 0;
-        };
+
         this.elHP().style.width = this.hp + '%';
+    };
+    createPlayer = () => {
+        const $player = createElement('div', 'player' + this.player);
+        const $progressbar = createElement('div', 'progressbar');
+        const $life = createElement('div', 'life');
+        const $name = createElement('div', 'name');
+        const $character = createElement('div', 'character');
+        const $img = createElement('img');
+        $player.appendChild($progressbar);
+        $progressbar.appendChild($life);
+        $life.style.width = this.hp + '%'; //Значение здоровья у персонажей
+        $progressbar.appendChild($name);
+        $name.innerText = (this.name); //Имена персонажей
+        $player.appendChild($character);
+        $character.appendChild($img);
+        $img.src = this.img;
+        return $player
     };
 };
