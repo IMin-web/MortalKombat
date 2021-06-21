@@ -19,7 +19,7 @@ export class Player {
         if (this.hp <= 0) {
             this.hp = 0;
         };
-        this.renderHP();
+        // this.renderHP();
     };
     elHP = () => {
         return document.querySelector('.player' + this.player + ' .life');

@@ -2,12 +2,9 @@ import { generateLogs } from "./generateLog.js"
 import { getRandom } from "./random.js";
 import { Player } from "./Player/index.js";
 import { $arena } from "./arena.js"
-import { onSubmit } from "./submit.js";
 
 let player1;
 let player2;
-export let player1Fight;
-export let player2Fight;
 
 export class Game {
     getPlayers = async () => {
@@ -31,12 +28,6 @@ export class Game {
             $arena.appendChild(player1.createPlayer());
             $arena.appendChild(player2.createPlayer());
             generateLogs('start', player1, player2);
-            return {player1: player1, player2: player2}
-    }
-    submit = async () => {
-        let players = await this.start();
-        player1 = players.player1;
-        player2 = players.player2;
-        onSubmit(player1, player2)
+            return {player1, player2}
     }
 }
