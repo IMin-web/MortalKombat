@@ -1,21 +1,21 @@
-import { Game } from "./start.js";
+import { Game } from "./game.js";
 import { $formFight, $arena } from "./arena.js";
-import { HIT } from "./fight.js";
 import { getRandom } from "./random.js";
 import { generateLogs } from "./generateLog.js";
 import { createReloadButton } from "./winning.js"
 import { playerWin } from "./winning.js";
 
 const game = new Game();
-let players;
 let player1;
 let player2;
 game.start()
-    .then(res => { players = res })
-    .then(() => player1 = players.player1)
-    .then(() => player2 = players.player2)
+    .then(res => { player1 = res.player1, player2 = res.player2 })
 
-
+const HIT = {
+    head: 30,
+    body: 25,
+    foot: 20,
+}
 $formFight.addEventListener('submit', function (e) {
     e.preventDefault();
     let attack = {};
