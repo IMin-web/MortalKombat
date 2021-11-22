@@ -1,5 +1,7 @@
 const $parent = document.querySelector('.parent');
 const $player = document.querySelector('.player');
+let getRandom = (num) => Math.ceil(Math.random() * num);
+
 
 const createElement = (tag, className) => {
     const $tag = document.createElement(tag);
@@ -11,28 +13,34 @@ const createElement = (tag, className) => {
         } else {
             $tag.classList.add(className);
         }
-
     }
-
     return $tag;
 }
+const fight = new Audio('./sounds/fight.mp3')
 
-function createEmptyPlayerBlock() {
-    const el = createElement('div', ['character', 'div11', 'disabled']);
+function createEmptyPlayerBlock(item) {
+    const el = createElement('div', ['character', 'div11']);
     const img = createElement('img');
-    img.src = 'http://reactmarathon-api.herokuapp.com/assets/mk/avatar/11.png';
-    el.appendChild(img);
+    img.src = `http://reactmarathon-api.herokuapp.com/assets/mk/avatar/11.png`;
+    el.addEventListener('click', () => {
+        localStorage.setItem('player1', JSON.stringify(item));
+        el.classList.add('active');
+
+        setTimeout(() => {
+            window.location.pathname = 'fight.html'
+        }, 1000);
+    });
+      el.appendChild(img);
     $parent.appendChild(el);
 }
+const choose = new Audio('./sounds/choose-your-destiny.mp3')
 
 async function init() {
+
     localStorage.removeItem('player1');
-
     const players = await fetch('https://reactmarathon-api.herokuapp.com/api/mk/players').then(res => res.json());
-
     let imgSrc = null;
-    createEmptyPlayerBlock();
-
+    createEmptyPlayerBlock(players[getRandom(23)]);
 
     players.forEach(item => {
         const el = createElement('div', ['character', `div${item.id}`]);
@@ -56,11 +64,12 @@ async function init() {
 
         el.addEventListener('click', () => {
             localStorage.setItem('player1', JSON.stringify(item));
-
             el.classList.add('active');
 
             setTimeout(() => {
                 window.location.pathname = 'fight.html'
+                fight.play()
+                choose.play();
             }, 1000);
         });
 
