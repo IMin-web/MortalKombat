@@ -16,7 +16,6 @@ const createElement = (tag, className) => {
     }
     return $tag;
 }
-const fight = new Audio('./sounds/fight.mp3')
 
 function createEmptyPlayerBlock(item) {
     const el = createElement('div', ['character', 'div11']);
@@ -33,7 +32,6 @@ function createEmptyPlayerBlock(item) {
       el.appendChild(img);
     $parent.appendChild(el);
 }
-const choose = new Audio('./sounds/choose-your-destiny.mp3')
 
 async function init() {
 
