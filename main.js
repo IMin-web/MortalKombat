@@ -16,6 +16,21 @@ const HIT = {
     body: 25,
     foot: 20,
 }
+
+const ul = document.querySelectorAll('label')
+for (let index = 0; index < ul.length; index++) {
+    ul[index].addEventListener('mouseover', () => {
+        select.play()
+})
+ul[index].addEventListener('mouseout', () => {
+    select.play()
+})
+}
+const fightButton = document.querySelector('button.button')
+fightButton.addEventListener('click', () => {
+    choos1.play()
+})
+
 $formFight.addEventListener('submit', function (e) {
     e.preventDefault();
     let attack = {};

@@ -10,20 +10,23 @@
 </head>
 <body>
 <div class="root">
-    <input type="button" id="go" class="go" value="Let's GO!"></input>
+    <input type="button" id="go" class="go" value="LET'S GO!"></input>
     <div class="hide">
     <div class="title">
-        SELECT YOUR FIGHTERS
+        SELECT YOUR FIGHTER
     </div>
     <div class="player"></div>
     <div class="parent"></div>
     </div>
-    <script>
+    <script>go = document.querySelector('input.go')
+    go.onmouseover = go.onmouseout= handler;
+    function handler() {
+        select.play()
+    }
         go.onclick = function() {
+            choos1.play()
             hide = document.querySelector('div.hide')
             hide.style.display = 'block'
-            go = document.querySelector('input.go')
-            console.log(go)
             choos.play();
             menu.play()
             go.style.display = 'none'

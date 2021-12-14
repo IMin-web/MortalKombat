@@ -54,7 +54,10 @@ function choose(character){
         break
         case 'scorpion': scorpion.play()
         break
+        case 'jax': jax.play()
+        break
     }
+    choos1.play()
 }
 
 const createElement = (tag, className) => {
@@ -104,6 +107,7 @@ async function init() {
                 const $img = createElement('img');
                 $img.src = imgSrc;
                 $player.appendChild($img);
+                select.play()
             }
         });
 

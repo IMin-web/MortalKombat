@@ -1,6 +1,12 @@
 const choos = new Howl({
     src: ['./sounds/choose.mp3'],
   });
+const choos1 = new Howl({
+    src: ['./sounds/choose1.mp3'],
+  });
+const select = new Howl({
+    src: ['./sounds/select.mp3'],
+  });
 
 
   const menu = new Howl({
@@ -71,4 +77,7 @@ const choos = new Howl({
   });
   const ermac = new Howl({
     src: ['./sounds/ermac.mp3'],
+  });
+  const jax = new Howl({
+    src: ['./sounds/jax.mp3'],
   });
