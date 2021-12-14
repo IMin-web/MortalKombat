@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/IMin-web/MortalKombat/issues"
   },
-  "homepage": "https://github.com/IMin-web/MortalKombat#readme"
+  "homepage": "https://github.com/IMin-web/MortalKombat#readme",
+  "dependencies": {
+    "howl": "^0.2.0"
+  }
 }

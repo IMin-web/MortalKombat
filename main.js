@@ -77,6 +77,6 @@ const responseFetch = async (attack) => {
             defence,
         })
     })
-        .then(res => res.json());
+        .then(res => res.json())
     return body;
 }

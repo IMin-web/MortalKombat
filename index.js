@@ -2,6 +2,60 @@ const $parent = document.querySelector('.parent');
 const $player = document.querySelector('.player');
 let getRandom = (num) => Math.ceil(Math.random() * num);
 
+function choose(character){
+    switch(character) {
+        case 'cyrax': cyrax.play()
+        break
+        case 'jax': jax.play()
+        break
+        case 'kabal': kabal.play()
+        break
+        case 'kano': kano.play()
+        break
+        case 'kunglao': kunglao.play()
+        break
+        case 'liukang': liukang.play()
+        break
+        case 'nightwolf': nightwolf.play()
+        break
+        case 'sektor': sektor.play()
+        break
+        case 'shangtsung': shangtsung.play()
+        break
+        case 'sindel': sindel.play()
+        break
+        case 'smoke': smoke.play()
+        break
+        case 'sonya': sonya.play()
+        break
+        case 'stryker': stryker.play()
+        break
+        case 'subzero': subzero.play()
+        break
+        case 'subzero1': subzero.play()
+        break
+        case 'ermac': ermac.play()
+        break
+        case 'jade': jade.play()
+        break
+        case 'kitana': kitana.play()
+        break
+        case 'kunglao': kunglao.play()
+        break
+        case 'liukang': liukang.play()
+        break
+        case 'mileena': mileena.play()
+        break
+        case 'noobsaibot': noob.play()
+        break
+        case 'rain': rain.play()
+        break
+        case 'reptile': reptile.play()
+        break
+        case 'scorpion': scorpion.play()
+        break
+    }
+}
 
 const createElement = (tag, className) => {
     const $tag = document.createElement(tag);
@@ -63,12 +117,10 @@ async function init() {
         el.addEventListener('click', () => {
             localStorage.setItem('player1', JSON.stringify(item));
             el.classList.add('active');
-
+            choose(imgSrc.slice(imgSrc.lastIndexOf('/')+1, imgSrc.length-4))
             setTimeout(() => {
                 window.location.pathname = 'fight.html'
-                fight.play()
-                choose.play();
-            }, 1000);
+            }, 1500);
         });
 
         img.src = item.avatar;
