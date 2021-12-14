@@ -10,12 +10,25 @@
 </head>
 <body>
 <div class="root">
+    <input type="button" id="go" class="go" value="Let's GO!"></input>
+    <div class="hide">
     <div class="title">
         SELECT YOUR FIGHTERS
     </div>
     <div class="player"></div>
     <div class="parent"></div>
-
+    </div>
+    <script>
+        go.onclick = function() {
+            hide = document.querySelector('div.hide')
+            hide.style.display = 'block'
+            go = document.querySelector('input.go')
+            console.log(go)
+            choos.play();
+            menu.play()
+            go.style.display = 'none'
+        }
+    </script>
     <script src="index.js"></script>
     <script src = "https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.js"></script>
     <script src="index_sounds.js" ></script>

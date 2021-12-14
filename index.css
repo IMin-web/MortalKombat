@@ -139,3 +139,14 @@ body {
 .character img {
     width: 100%;
 }
+.go {
+    width: 50vmin;
+    height: 20vmin;
+    font-size: 10vmin;
+    font-family: 'Mortal Kombat 3';
+    background-color: gray;
+    color: rgb(224, 98, 26);
+}
+.hide{
+    display: none;
+}
