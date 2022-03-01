@@ -1,1 +1,0 @@
-export let getRandom = (num) => Math.ceil(Math.random() * num);
