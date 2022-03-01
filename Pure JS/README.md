@@ -4,5 +4,5 @@
 Знаменитая игра в пошаговом исполнении.
 Адаптирована под мобильные устройства.
 
-## [Демонстрация](http://t92276ud.beget.tech/)
+## [Демонстрация](http://imin-web.ru/#/projects/mortalkombat)
 Используется [HOWLER.JS](https://github.com/goldfire/howler.js)
